@@ -1,6 +1,16 @@
-import { Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+
+
 
 export default function Index() {
+
+  const pingBackend = async () => {
+    const response = await fetch("http://192.168.0.105:3000")
+    const data = await response.json()
+    console.log(data)
+
+  }
+
   return (
     <View
       style={{
@@ -9,7 +19,19 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Pressable style={styles.btn} onPress={() => pingBackend()}>
+        <Text style={{ color: "white" }}>Ping Backend</Text>
+      </Pressable>
+      <Text>HomeScreen</Text>
     </View>
   );
 }
+
+
+const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: "blue",
+    borderRadius: 10,
+    padding: 10,
+  }
+})
