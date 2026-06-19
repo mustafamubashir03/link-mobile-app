@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 
@@ -23,6 +24,8 @@ export default function Index() {
         <Text style={{ color: "white" }}>Ping Backend</Text>
       </Pressable>
       <Text>HomeScreen</Text>
+      <Link href="/sign-in">
+        <Text>Go to sign in page</Text></Link>
     </View>
   );
 }
